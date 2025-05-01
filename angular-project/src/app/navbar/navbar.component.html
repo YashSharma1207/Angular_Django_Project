@@ -1,4 +1,22 @@
-<h3>Hi, Guest</h3>
-<a href="welcome"><b>Welcome</b></a>  <b> | </b>
-<a href="login"><b>Login</b></a>
-<hr>
+<div class="navbar">
+    <div *ngIf="isLogin()">
+      <h3 class="nav-greeting">Hi, {{ form.data.firstName }} <span class="role-tag">(admin)</span></h3>
+      <div class="nav-links">
+        <a href="/user"><b>Add User</b></a>
+        <span>|</span>
+        <a href="/userlist"><b>User List</b></a>
+        <span>|</span>
+        <a (click)="logout()"><b>Logout</b></a>
+      </div>
+    </div>
+  
+    <div *ngIf="!isLogin()">
+      <h3 class="nav-greeting">Hi, Guest</h3>
+      <div class="nav-links">
+        <a href="/welcome"><b>Welcome</b></a>
+        <span>|</span>
+        <a href="/login"><b>Login</b></a>
+      </div>
+    </div>
+  </div>
+  
